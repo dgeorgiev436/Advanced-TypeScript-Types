@@ -129,3 +129,15 @@ const userInputElement = document.getElementById("user-input");
 if(userInputElement){
 	(userInputElement as HTMLEmbedElement).value = "Hey there"	
 }
+
+
+// *************************** Index Properties ***************************
+
+interface ErrorContainer {
+	[prop: string]: string
+}
+
+const error: ErrorContainer = {
+	email: "Not a valid email!",
+	username: "Must start with a capital character!"
+}
