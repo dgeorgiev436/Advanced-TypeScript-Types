@@ -23,7 +23,12 @@ type Combinable = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric;
-// Using union types
+
+// *************************** Function Overloads and Using union types ***************************
+// Typescript merges the function information provided on line 29 and the function declaration on line 30.
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: string, b: number): string;
 function add(a: Combinable, b: Combinable){
 // 	Run different code depending on the type aka typeguards
 	if(typeof a === "string" || typeof b === "string"){
@@ -32,6 +37,10 @@ function add(a: Combinable, b: Combinable){
 		return a + b;
 	}
 }
+
+
+const result = add(1,5);
+
 
 // UnknownEmployee of union type either Employee or Admin
 type UnknownEmployee = Employee | Admin;
@@ -122,12 +131,12 @@ moveAnimal({type: "bird", flyingSpeed: 58})
 // *************************** Type Casting ***************************
 // 2 ways to implement type casting in TypeScript
 // ! mark after expression declares that the expression will never be null
-const userInputElement = <HTMLInputElement>document.getElementById("user-input")!;
+// const userInputElement = <HTMLInputElement>document.getElementById("user-input")!;
 const userInputElement = document.getElementById("user-input");
 
 
 if(userInputElement){
-	(userInputElement as HTMLEmbedElement).value = "Hey there"	
+	(userInputElement as HTMLInputElement).value = "Hey there"	
 }
 
 
@@ -141,3 +150,5 @@ const error: ErrorContainer = {
 	email: "Not a valid email!",
 	username: "Must start with a capital character!"
 }
+
+// *************************** Function Overloads ***************************
