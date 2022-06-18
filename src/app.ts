@@ -88,7 +88,7 @@ useVehicle(v2);
 
 
 // *************************** Discriminated UNIONS ***************************
-
+// There is a common property in both interfaces that helps us with type guarding
 interface Bird {
 	type: "bird";
 	flyingSpeed: number;
@@ -117,3 +117,15 @@ function moveAnimal(animal: Animal){
 
 
 moveAnimal({type: "bird", flyingSpeed: 58})
+
+
+// *************************** Type Casting ***************************
+// 2 ways to implement type casting in TypeScript
+// ! mark after expression declares that the expression will never be null
+const userInputElement = <HTMLInputElement>document.getElementById("user-input")!;
+const userInputElement = document.getElementById("user-input");
+
+
+if(userInputElement){
+	(userInputElement as HTMLEmbedElement).value = "Hey there"	
+}
