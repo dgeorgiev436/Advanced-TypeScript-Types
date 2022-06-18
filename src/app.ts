@@ -25,7 +25,7 @@ type Numeric = number | boolean;
 type Universal = Combinable & Numeric;
 
 // *************************** Function Overloads and Using union types ***************************
-// Typescript merges the function information provided on line 29 and the function declaration on line 30.
+// Typescript merges the function information provided on lines 29,30 and 31 and the function declaration on line 32.
 function add(a: number, b: number): number;
 function add(a: string, b: string): string;
 function add(a: string, b: number): string;
@@ -37,10 +37,19 @@ function add(a: Combinable, b: Combinable){
 		return a + b;
 	}
 }
-
-
 const result = add(1,5);
 
+
+// *************************** Optional Chaining ***************************
+const fetchUserData = {
+	id: "u1",
+	name: "Max",
+	job: {
+		title: "CEO",
+		description: "My company"
+	}
+}
+console.log(fetchUserData?.job?.title);
 
 // UnknownEmployee of union type either Employee or Admin
 type UnknownEmployee = Employee | Admin;
