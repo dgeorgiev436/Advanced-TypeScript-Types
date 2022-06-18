@@ -49,7 +49,17 @@ const fetchUserData = {
 		description: "My company"
 	}
 }
+// Using "?" for optional chaining to check if data exists
 console.log(fetchUserData?.job?.title);
+
+
+// *************************** Nullish Coalescing "??" ***************************
+// Typescript "??" operator that checks if value is either null or undefined
+const userInput = null;
+
+const storedData = userInput ?? "Default"
+
+console.log(storedData);
 
 // UnknownEmployee of union type either Employee or Admin
 type UnknownEmployee = Employee | Admin;
